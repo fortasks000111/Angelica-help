@@ -43,8 +43,10 @@ dependencies {
     implementation(libs.legacy.support.v4)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.commons.math3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.test)
-
+    androidTestImplementation(libs.kakao)
+    androidTestImplementation(libs.commons.math3)
 }
