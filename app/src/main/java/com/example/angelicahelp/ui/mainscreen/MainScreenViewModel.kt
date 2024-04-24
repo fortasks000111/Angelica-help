@@ -4,19 +4,21 @@ import androidx.lifecycle.ViewModel
 import org.apache.commons.math3.distribution.LogNormalDistribution
 
 class MainScreenViewModel : ViewModel() {
-    var mean_val: Double? = null
-    var variance_val: Double? = null
-    var random_number_result: Double? = null
+    var mean: Double? = null
+    var variance: Double? = null
+    var randomNumber: Double? = null
+
+    private val coefficient = 0.8
 
     fun getResult(): Double? {
-        if (mean_val != null && variance_val != null) {
-            random_number_result = LogNormalDistribution(
-                mean_val!!,
-                kotlin.math.sqrt(variance_val!!),
-                0.8
+        if (mean != null && variance != null) {
+            randomNumber = LogNormalDistribution(
+                mean!!,
+                kotlin.math.sqrt(variance!!),
+                coefficient
             ).sample()
         } else return null
-        return random_number_result
+        return randomNumber
     }
 
 

@@ -16,9 +16,9 @@ import com.example.angelicahelp.R
 class MainScreen : Fragment() {
     private lateinit var viewModel: MainScreenViewModel
 
-    private lateinit var mean_val: EditText
-    private lateinit var variance_val: EditText
-    private lateinit var random_number_result: TextView
+    private lateinit var meanValue: EditText
+    private lateinit var varianceValue: EditText
+    private lateinit var randomNumber: TextView
     private lateinit var btn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,53 +31,53 @@ class MainScreen : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_main_screen, container, false)
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
-        mean_val = view.findViewById(R.id.mean_val)
-        variance_val = view.findViewById(R.id.variance_value)
-        random_number_result = view.findViewById(R.id.random_number_result)
+        meanValue = view.findViewById(R.id.mean_val)
+        varianceValue = view.findViewById(R.id.variance_value)
+        randomNumber = view.findViewById(R.id.random_number_result)
         btn = view.findViewById(R.id.get_random_num)
 
-        mean_val.setText(viewModel.mean_val?.toString()?:getString(R.string.empty))
-        variance_val.setText(viewModel.variance_val?.toString()?: getString(R.string.empty))
-        random_number_result.setText(viewModel.random_number_result?.toString()?: getString(R.string._0))
+        meanValue.setText(viewModel.mean?.toString()?:getString(R.string.empty))
+        varianceValue.setText(viewModel.variance?.toString()?: getString(R.string.empty))
+        randomNumber.setText(viewModel.randomNumber?.toString()?: getString(R.string._0))
         btn.setText(R.string.button_text)
 
 
-        mean_val.addTextChangedListener(object : TextWatcher{
+        meanValue.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+                return
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val input = p0.toString()
-                viewModel.mean_val = input.toDoubleOrNull()
+                viewModel.mean = input.toDoubleOrNull()
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
+                return
             }
         })
 
-        variance_val.addTextChangedListener(object : TextWatcher {
+        varianceValue.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+                return
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val input = p0.toString()
-                viewModel.variance_val = input.toDoubleOrNull()
+                viewModel.variance = input.toDoubleOrNull()
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
+                return
             }
         })
 
         btn.setOnClickListener {
             if (viewModel.getResult() != null)
             {
-                random_number_result.setText(viewModel.random_number_result.toString())
+                randomNumber.setText(viewModel.randomNumber.toString())
             }
-            else random_number_result.setText(getString(R.string.result))
+            else randomNumber.setText(getString(R.string.result))
         }
 
         return view

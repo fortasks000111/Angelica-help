@@ -1,0 +1,11 @@
+config:
+  validation: true
+  warningsAsErrors: false
+  checkExhaustiveness: false
+  excludes: ''
+
+style:
+  MagicNumber:
+    active: false
+  WildcardImport:
+    active: false
