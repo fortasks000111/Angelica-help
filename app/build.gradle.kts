@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.gitlab.arturbosch.detekt") version "1.17.1"
 }
 
 android {
@@ -33,6 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+detekt {
+    version = "1.17.1"
+    config = files("path/to/detekt-config.yml")
+}
+
+tasks.register("detektCheck") {
+    group = "verification"
+    description = "Run Detekt analysis"
+    dependsOn("detekt")
 }
 
 dependencies {

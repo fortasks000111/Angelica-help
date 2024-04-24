@@ -1,46 +1,41 @@
-name: CI
+name: Build and Test
 
 on:
   push:
     branches:
       - develop
-  pull_request:
-    branches:
-      - develop
 
 jobs:
-  build:
-    name: Build, Test, and Analyze
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: 11
+          java-version: '18'
+          distribution: 'adopt'
 
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Make Gradlew executable
+        run: chmod +x ./gradlew
 
-      - name: Run Unit Tests
+      - name: Run unit tests
         run: ./gradlew test
 
-      - name: Run UI Tests
-        run: ./gradlew connectedCheck
-
-      - name: Setup Detekt
-        run: curl -sSLO https://github.com/detekt/detekt/releases/download/v1.18.1/detekt-cli-1.18.1-all.jar
-
       - name: Run Detekt
-        run: java -jar detekt-cli-1.18.1-all.jar --input src --config detekt-config.yml
+        run: ./gradlew detektCheck
 
-      - name: Upload Build Artifacts
+      - name: Build APK and Bundle
+        run: ./gradlew assembleDebug bundleDebug
+
+      - name: Upload APK and Bundle
         uses: actions/upload-artifact@v2
         with:
-          name: build-results
+          name: app-artifacts
           path: |
-            app/build/reports
-            app/build/outputs
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/bundle/debug/*.aab
