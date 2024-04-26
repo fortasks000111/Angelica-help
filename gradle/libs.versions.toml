@@ -4,6 +4,7 @@ firebaseDatabase = "20.3.1"
 google-material = "1.11.0"
 googleServices = "4.4.1"
 kakao = "3.5.1"
+mockitoCore = "3.12.4"
 navigationVersion = "2.7.7"
 retrofit2Version = "2.9.0"
 okhttp3Version = "4.9.1"
@@ -30,6 +31,7 @@ firebase-database = { module = "com.google.firebase:firebase-database", version.
 google-services = { module = "com.google.gms:google-services", version.ref = "googleServices" }
 kakao = { module = "io.github.kakaocup:kakao", version.ref = "kakao" }
 material-1_11_0 = { module = "com.google.android.material:material", version.ref = "google-material" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
 navigation-fragment-ktx = {group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationVersion"}
 navigation-ui-ktx = {group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationVersion"}
 retrofit2 = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2Version"}

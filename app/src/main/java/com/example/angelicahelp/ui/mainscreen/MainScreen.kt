@@ -23,6 +23,7 @@ class MainScreen : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -30,7 +31,6 @@ class MainScreen : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         val view = inflater.inflate(R.layout.fragment_main_screen, container, false)
-        viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
         meanValue = view.findViewById(R.id.mean_val)
         varianceValue = view.findViewById(R.id.variance_value)
         randomNumber = view.findViewById(R.id.random_number_result)

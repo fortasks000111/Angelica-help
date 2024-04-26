@@ -9,3 +9,5 @@ style:
     active: false
   WildcardImport:
     active: false
+  UnusedPrivateProperty:
+    active: false
