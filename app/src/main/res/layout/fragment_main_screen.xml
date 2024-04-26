@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mainscreen.MainScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_margin="15dp"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/mean_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:hint="@string/mu"
+                />
+
+            <EditText
+                android:id="@+id/variance_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mean_val"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:hint="@string/sigma"
+                />
+
+            <TextView
+                android:id="@+id/random_number_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variance_value"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:gravity="center"
+                android:text="@string/result"
+                />
+
+            <Button
+                android:id="@+id/get_random_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_below="@id/random_number_result"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/dark_blue"
+                android:text="@string/button_text" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
