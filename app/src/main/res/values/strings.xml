@@ -2,7 +2,7 @@
     <string name="app_name">Angelica help</string>
     <string name="mu">μ</string>
     <string name="sigma">σ²</string>
-    <string name="button_text">Расчитать</string>
+    <string name="button_text">Рассчитать</string>
     <string name="result">0</string>
     <string name="_0">0</string>
     <string name="empty" />
